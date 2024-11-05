@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class AddInLinkedList {
+public class AddAndRemoveInLinkedList {
     public static class Node {
         int data;
         Node next;
@@ -120,7 +120,7 @@ public class AddInLinkedList {
     }
 
     public static void main(String[] args) {
-        AddInLinkedList ll = new AddInLinkedList();
+        AddAndRemoveInLinkedList ll = new AddAndRemoveInLinkedList();
         ll.addFirst(2);
         ll.addFirst(1);
         ll.addLast(4);
@@ -134,5 +134,3 @@ public class AddInLinkedList {
         System.out.println(ll.size);
     }
 }
-
-// Time Complexity O(1)
