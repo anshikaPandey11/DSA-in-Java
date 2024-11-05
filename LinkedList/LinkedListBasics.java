@@ -12,7 +12,7 @@ public class LinkedListBasics {
         }
 
     }
-
+//create head and tail node
     public static Node head;
     public static Node tail;
 
