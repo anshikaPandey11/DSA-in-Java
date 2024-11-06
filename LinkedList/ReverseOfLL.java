@@ -1,10 +1,11 @@
 import java.util.*;
+
 public class ReverseOfLL {
-    //four step process
-    //next = curr.next
-    //curr.next =prev
-    //prev= curr
-    //curr=next
+    // four step process
+    // next = curr.next
+    // curr.next =prev
+    // prev= curr
+    // curr=next
     public static class Node {
         int data;
         Node next;
@@ -65,19 +66,46 @@ public class ReverseOfLL {
         System.out.println();
     }
 
-    public void reverse(){
-        Node prev =null;
-        Node curr = tail=head;
+    public void reverse() {
+        Node prev = null;
+        Node curr = tail = head;
         Node next;
 
-        while( curr != null){
-            next =curr.next;
-            curr.next= prev;
-            prev=curr;
-            curr=next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
         }
-        head =prev;
+        head = prev;
     }
+
+    public void deleteNthFromEnd(int n) {
+        // calculate size
+        int sz = 0;
+        Node temp = head;
+        while (temp != null) {
+            temp = temp.next;
+            sz++;
+        }
+        if (n == sz) {
+            head = head.next;// remove first
+            return;
+        }
+        // sz-n =prev node of node which we want to delete
+        int i = 1;
+        int iToFind = sz - n;
+        Node prev = head;
+        while (i < iToFind) {
+            prev = prev.next;
+            i++;
+
+        }
+
+        prev.next = prev.next.next;
+        return;
+    }
+
     public static void main(String[] args) {
         ReverseOfLL ll = new ReverseOfLL();
         ll.addFirst(2);
@@ -86,6 +114,8 @@ public class ReverseOfLL {
         ll.addLast(5);
         ll.print();
         ll.reverse();
+        ll.print();
+        ll.deleteNthFromEnd(3);
         ll.print();
         System.out.println(ll.size);
     }
